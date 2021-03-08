@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div id="app" v-cloak>
+    <Header></Header>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Header from "@/views/view/header"
+export default {
+  components:{
+    Header
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -15,8 +21,15 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
 }
-
+*{
+  margin:0;
+  padding: 0;
+}
+body,html{
+  height: 100%;
+}
 #nav {
   padding: 30px;
 
@@ -28,5 +41,8 @@
       color: #42b983;
     }
   }
+}
+[v-cloak]{
+  display: none;
 }
 </style>
